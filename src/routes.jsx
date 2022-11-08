@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
-import { purchases } from "./constants";
+import { PURCHASES } from "./constants";
 import Cart from "./pages/Cart";
 import Main from "./pages/Main";
 import Order from "./pages/Order";
@@ -9,7 +9,7 @@ import Order from "./pages/Order";
 export const AppRoutes = () => {
   const [cart, setCart] = useState();
 
-  function add(car) {
+  function add(cart) {
     return {
       id: cart,
       quantity: 1,
@@ -17,8 +17,8 @@ export const AppRoutes = () => {
   }
   useEffect(() => {
     if (cart) {
-      purchases[purchases.length] = add(cart);
-      console.log(purchases);
+      PURCHASES[PURCHASES.length] = add(cart);
+      console.log(PURCHASES);
     }
   });
   return (

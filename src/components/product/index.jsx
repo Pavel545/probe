@@ -12,7 +12,7 @@ function Product(props) {
         <S.Text>{props.text}</S.Text>
         <S.Text_strength>{props.text_strength}</S.Text_strength>
       </S.Cell_op>
-      <button onClick={addCart}>{props.textButton}</button>
+      <S.Button onClick={addCart}>{props.textButton}</S.Button>
     </S.Cell>
   );
 }

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { beer } from "../../components/Bd/beer";
 import Product from "../../components/product";
-import { purchases } from "../../constants";
+import { PURCHASES } from "../../constants";
 import * as S from "./style";
 
 function Cart() {
@@ -10,9 +10,9 @@ function Cart() {
   const [quantity, setQuantity] = useState();
   useEffect(() => {
     if (quantity || quantity===0) {
-      purchases.splice(quantity,1);
+      PURCHASES.splice(quantity,1);
       console.log(quantity);
-      console.log(purchases);
+      console.log(PURCHASES);
 
       setQuantity(undefined)
     }
@@ -20,7 +20,7 @@ function Cart() {
   return (
     <S.Gallery>
       {beer.map((beers, key) =>
-        purchases.map((element, index) =>
+        PURCHASES.map((element, index) =>
           beers.id === element.id ? (
             <Product
               id={index}

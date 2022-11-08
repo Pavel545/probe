@@ -4,15 +4,15 @@ import { NavLink } from "react-router-dom";
 function Header() {
   return (
     <S.Headers>
-      <NavLink to="/"><p>🍺</p></NavLink>
-      <div>
+      <NavLink to="/"><img src="blob:https://loon.site/a1d13948-4b83-418a-8d9f-ec658d315e27" /></NavLink>
+      <S.BoxLink>
         <div>
-          <NavLink to="/order">Оплата</NavLink>{" "}
+          <NavLink   to="/order"><S.Link>Оплата</S.Link> </NavLink>
         </div>
         <div>
-          <NavLink to="/cart">Корзина</NavLink>
+          <NavLink to="/cart"><S.Link>Корзина</S.Link> </NavLink>
         </div>
-      </div>
+      </S.BoxLink>
     </S.Headers>
   );
 }

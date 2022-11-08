@@ -1,4 +1,1 @@
-
-export let purchases =[
-    
-  ];
+export let PURCHASES  = [];
