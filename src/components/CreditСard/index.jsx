@@ -1,10 +1,9 @@
 import { useState } from "react";
 import Cards from "react-credit-cards";
-import 'react-credit-cards/es/styles-compiled.css';
+import "react-credit-cards/es/styles-compiled.css";
 import * as S from "./style";
 
-
-function Credit() {
+function Credit(params) {
   const [cvc, setCvc] = useState("");
   const [expiry, setExpiry] = useState("");
   const [focus, setFocus] = useState("");
@@ -13,24 +12,27 @@ function Credit() {
 
   return (
     <div>
-        <Cards
+      <Cards
         number={number}
         name={name}
         expiry={expiry}
         cvc={cvc}
         focused={focus}
-
-        />
-      <S.Form>
+      />
+      <S.Form onSubmit={params.go}>
         <input
+          required
           type="tel"
           name="number"
           placeholder="Card Number"
           value={number}
+          minLength={16}
+          maxLength={16}
           onChange={(e) => setNumber(e.target.value)}
           onFocus={(e) => setFocus(e.target.setName)}
         />
         <input
+          required
           type="text"
           name="name"
           placeholder="Name"
@@ -39,6 +41,7 @@ function Credit() {
           onFocus={(e) => setFocus(e.target.setName)}
         />
         <input
+          required
           type="text"
           name="expire"
           placeholder="MM/YY Expire"
@@ -47,13 +50,17 @@ function Credit() {
           onFocus={(e) => setFocus(e.target.setName)}
         />
         <input
+          required
           type="tel"
           name="cvc"
           placeholder="CVC"
+          minLength={3}
+          maxLength={3}
           value={cvc}
           onChange={(e) => setCvc(e.target.value)}
           onFocus={(e) => setFocus(e.target.setName)}
         />
+        <button> Оформить заказ</button>
       </S.Form>
     </div>
   );

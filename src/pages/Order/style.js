@@ -1,6 +1,15 @@
 import styled from "styled-components";
 
 export const Box = styled.div`
+  min-height: 750px;
+  background: #0c0c04;
+  padding-top: 30px;
+`;
+export const ButtonBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  min-height: 100px;
   background: #0c0c04;
   padding-top: 30px;
 `;

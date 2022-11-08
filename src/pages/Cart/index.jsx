@@ -19,7 +19,7 @@ function Cart() {
   });
   return (
     <S.Gallery>
-      {beer.map((beers, key) =>
+      {PURCHASES.length === 0 ? <S.Text>Тут ещё нечего нет...</S.Text>:beer.map((beers, key) =>
         PURCHASES.map((element, index) =>
           beers.id === element.id ? (
             <Product
@@ -37,6 +37,7 @@ function Cart() {
           )
         )
       )}
+      
     </S.Gallery>
   );
 }

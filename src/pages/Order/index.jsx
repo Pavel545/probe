@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Buyer from "../../components/Buyer";
 import Credit from "../../components/CreditСard";
+import { Final } from "../../components/Finall/input";
 
 import * as S from "./style";
 function Order() {
@@ -15,14 +16,18 @@ function Order() {
   return (
     <S.Box>
       <div>
-        {tack === 1 ? <Buyer  /> : none}
-        {tack === 2 ? <Credit /> : none}
-      </div>
-      <div>
-        {tack !== 1 ? <S.Button onClick={back}>Назад</S.Button> : none}
+        {tack === 1 ? <Buyer go={go} /> : none}
+        {tack === 2 ? <Credit go={go} /> : none}
+        {tack === 3 ? <Final/>: none}
+        {tack === 4 ? window.location.href = '/': none}
 
-        {tack !== 2 ? <S.Button onClick={go}>Далее</S.Button> : none}
+
       </div>
+      <S.ButtonBox>
+        {tack ===2 ? <S.Button onClick={back}>Назад</S.Button> : none}
+
+        {tack === 3 ? <S.Button onClick={go}>Далее</S.Button> : none}
+      </S.ButtonBox>
     </S.Box>
   );
 }
