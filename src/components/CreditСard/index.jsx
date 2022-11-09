@@ -11,7 +11,7 @@ function Credit(params) {
   const [number, setNumber] = useState("");
 
   return (
-    <div>
+    <S.Box>
       <Cards
         number={number}
         name={name}
@@ -20,7 +20,7 @@ function Credit(params) {
         focused={focus}
       />
       <S.Form onSubmit={params.go}>
-        <input
+        <S.Input
           required
           type="tel"
           name="number"
@@ -31,7 +31,7 @@ function Credit(params) {
           onChange={(e) => setNumber(e.target.value)}
           onFocus={(e) => setFocus(e.target.setName)}
         />
-        <input
+        <S.Input
           required
           type="text"
           name="name"
@@ -40,7 +40,7 @@ function Credit(params) {
           onChange={(e) => setName(e.target.value)}
           onFocus={(e) => setFocus(e.target.setName)}
         />
-        <input
+        <S.Input
           required
           type="text"
           name="expire"
@@ -49,7 +49,7 @@ function Credit(params) {
           onChange={(e) => setExpiry(e.target.value)}
           onFocus={(e) => setFocus(e.target.setName)}
         />
-        <input
+        <S.Input
           required
           type="tel"
           name="cvc"
@@ -60,9 +60,9 @@ function Credit(params) {
           onChange={(e) => setCvc(e.target.value)}
           onFocus={(e) => setFocus(e.target.setName)}
         />
-        <button> Оформить заказ</button>
+        <S.Buttons> Указать адрес..</S.Buttons>
       </S.Form>
-    </div>
+    </S.Box>
   );
 }
 

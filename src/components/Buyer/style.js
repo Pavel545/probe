@@ -33,3 +33,12 @@ export const Buyers = styled.div`
   display: flex;
   justify-content: center;
 `;
+export const Buttons = styled.button`
+  box-sizing: border-box;
+  border-radius: 20px;
+  width: 282px;
+  height: 38px;
+  font-size: 16px;
+  line-height: 20px;
+  color: #000000;
+`;

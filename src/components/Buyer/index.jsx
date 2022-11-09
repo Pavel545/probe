@@ -9,11 +9,13 @@ function Buyer(params) {
         <h3 className="cart__form_header">Оформление заказа</h3>
         <S.FormInput
           required
-          placeholder="Имя Фамилия"
+          placeholder="Имя"
           type="text"
-          cols="30"
-          rows="10"
-          minLength={5}
+        />
+        <S.FormInput
+          required
+          placeholder="Фамилия"
+          type="text"
         />
         <S.FormInput
           required
@@ -21,21 +23,14 @@ function Buyer(params) {
           type="number"
           minLength={11}
         />
-        <div>
-          <S.FormInput
-            required
-            placeholder="Адрес доставки"
-            type="text"
-          />
-          <button>🌍</button>
-        </div>
+        
         <div className="cart__form_text-box">
           <p className="cart__form_text">Итого: </p>
           <p className="name_product">{PURCHASES.length} нименований </p>
         </div>
-        <button  className="cart__form_butt">
-          Оформить заказ
-        </button>
+        <S.Buttons  className="cart__form_butt">
+          Данные карты..
+        </S.Buttons>
       </S.Form>
     </S.Buyers>
   );
