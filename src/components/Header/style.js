@@ -10,6 +10,15 @@ export const Headers = styled.div`
   background-position: center;
   background-size: cover;
 `;
+export const Logo = styled.div`
+  
+  background-image: url(${process.env.PUBLIC_URL + "/logo.jpg"});
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+`;
 export const BoxLink = styled.div`
   display: flex;
   gap: 10px;
