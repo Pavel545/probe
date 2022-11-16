@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Address } from "../../components/Address";
+import Address from "../../components/Address";
 import Buyer from "../../components/Buyer";
 import Credit from "../../components/CreditСard";
 import { Final } from "../../components/Finall/input";

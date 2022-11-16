@@ -1,4 +1,4 @@
-import { PURCHASES } from "../../constants";
+import { PURCHASES,USER } from "../../constants";
 import * as S from "./style";
 
 function Buyer(params) {
