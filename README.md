@@ -1,7 +1,7 @@
 An example of a website with a gallery, order, and a purchase payment process.
 
 Initialization of the project:
-### `npm init`
+### `npm i`
 
 In the project directory, you can run:
 
