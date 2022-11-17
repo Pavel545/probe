@@ -1,8 +1,17 @@
 import * as S from "./style";
+import { useDispatch } from "react-redux";
+import { removalProduct } from "../../store/actions/creators/todo";
 
 function Product(props) {
+  const dispatch = useDispatch();
   function addCart() {
-    props.cart(props.id);
+    if (props.textButton === "Удалить из корзины") {
+      dispatch(removalProduct(props.id));
+      console.log(props.id);
+    }
+    if (props.textButton === "Добавить в корзину") {
+      props.cart(props.id);
+    }
   }
   return (
     <S.Cell>

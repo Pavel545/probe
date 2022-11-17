@@ -1,1 +1,1 @@
-export let PURCHASES  = [];
+export let NEXT_ID  =[];

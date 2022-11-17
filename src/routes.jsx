@@ -1,24 +1,22 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { addProduct } from "./store/actions/creators/todo";
+
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
-import { PURCHASES } from "./constants";
 import Cart from "./pages/Cart";
 import Main from "./pages/Main";
 import Order from "./pages/Order";
 
 export const AppRoutes = () => {
+  const dispatch = useDispatch();
+
   const [cart, setCart] = useState();
 
-  function add(cart) {
-    return {
-      id: cart,
-      quantity: 1,
-    };
-  }
+  
   useEffect(() => {
     if (cart) {
-      PURCHASES[PURCHASES.length] = add(cart);
-      console.log(PURCHASES);
+      dispatch(addProduct(cart))
     }
   });
   return (
