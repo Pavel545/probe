@@ -1,4 +1,3 @@
-import { PURCHASES } from "../../constants";
 import * as S from "./style";
 
 function Address(params) {
