@@ -1,16 +1,25 @@
 import * as S from "./style";
 import { useDispatch } from "react-redux";
-import { removalProduct } from "../../store/actions/creators/todo";
+import { createCart } from "../../store/actions/thunk/todo";
 
 function Product(props) {
   const dispatch = useDispatch();
   function addCart() {
+    const el =()=>{
+      return{
+        id:props.id,
+        image_url: props.img,
+        name:props.name,
+        tagline:props.text,
+        abv:props.text_strength,
+      }
+    }
     if (props.textButton === "Удалить из корзины") {
-      dispatch(removalProduct(props.id));
       console.log(props.id);
     }
     if (props.textButton === "Добавить в корзину") {
-      props.cart(props.id);
+      dispatch(createCart(el()))
+
     }
   }
   return (

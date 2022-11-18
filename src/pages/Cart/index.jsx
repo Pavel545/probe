@@ -3,47 +3,35 @@ import { useState } from "react";
 import { beer } from "../../components/Bd/beer";
 import Product from "../../components/product";
 import * as S from "./style";
-
 import { useSelector } from "react-redux";
 import {todosSelector} from "../../store/selectors/todo"
-import { NEXT_ID } from "../../constants";
 
 
 
 function Cart() {
   const cartProduct = useSelector(todosSelector)
   
-  const not = () => {};
-  const [quantity, setQuantity] = useState('');
-  useEffect(() => {
-    if (quantity||quantity===0) {
-      
-      setQuantity()
-      
-    }
-  });
   
+  
+  useEffect(() => {
+  });
+  console.log(cartProduct);
   
   return (
     <S.Gallery>
-      {cartProduct.length === 0 ? <S.Text>Тут ещё нечего нет...</S.Text>:
-      beer.map((beers, key) =>
-        cartProduct.map((element, index) =>
-          beers.id === element.content ? (
-            <Product
-              id={NEXT_ID[index]+1}
-              key={key}
-              img={beers.image_url}
-              name={beers.name}
-              text={beers.tagline}
-              text_strength={beers.abv}
-              textButton={"Удалить из корзины"}
-            />
-          ) : (
-            not
-          )
-        )
-      )}
+      {cartProduct[0] === undefined ? <S.Text>Тут ещё нечего нет...</S.Text>:
+      cartProduct.map((element, index) =>
+      
+        <Product
+          id={element.title.id}
+          key={index}
+          img={element.title.image_url}
+          name={element.title.name}
+          text={element.title.tagline}
+          text_strength={element.title.abv}
+          textButton={"Удалить из корзины"}
+        />
+    )}
       
     </S.Gallery>
   );

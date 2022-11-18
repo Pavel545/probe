@@ -1,50 +1,62 @@
-import { NEXT_ID } from "../../constants";
-import { ADD_PRODUCT, REMOVAL_PRODUCT} from "../actions/types/todo";
+import {
+  ADD_TODO_FAILURE,
+  ADD_TODO_SUCCESS,
+  ADD_TODO_STARTED,
+  FETCH_TODOS_STARTED,
+  FETCH_TODOS_SUCCESS,
+  FETCH_TODOS_FAILURE,
+} from "../actions/types/todo";
+
 const initialState = {
-  allIds: [],
-  byIds: {},
+  loading: false,
+  error: null,
+  todos: [],
 };
 
 export default function todoReducer(state = initialState, action) {
   switch (action.type) {
-    case REMOVAL_PRODUCT: {
-
-      const {id}  = action.payload;
-
-      const a1 =state.allIds.filter(item => item !==id)
-      const a2 =   state.byIds
-      delete a2[id]
-      NEXT_ID.splice(id,1)
-      console.log(NEXT_ID);
-      
+    case ADD_TODO_STARTED:
       return {
         ...state,
-        allIds:a1,
-        byIds: a2,
+        loading: true,
       };
-    }
-    case ADD_PRODUCT: {
-      const { id, content } = action.payload;
 
+    case ADD_TODO_SUCCESS:
       return {
         ...state,
+        loading: false,
+        error: null,
+        todos: [...state.todos, action.payload],
+      };
 
-        allIds: [...state.allIds, id],
-
-        byIds: {
-          ...state.byIds,
-
-          [id]: {
-            content,
-            complete: false,
-          },
-        },
+    case ADD_TODO_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.error,
+      };
+    case FETCH_TODOS_STARTED: {
+      return {
+        ...state,
+        loading: true,
       };
     }
 
-    
-    
-    
+    case FETCH_TODOS_SUCCESS: {
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        todos: [...action.payload.todos],
+      };
+    }
+
+    case FETCH_TODOS_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.error,
+      };
 
     default:
       return state;

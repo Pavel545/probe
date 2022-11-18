@@ -1,26 +1,39 @@
-import { NEXT_ID } from "../../../constants";
-import { ADD_PRODUCT, REMOVAL_PRODUCT, COMPARISON_PRODUCT} from "../types/todo";
-let nextTodoId = 0;
+import { ADD_TODO_FAILURE, ADD_TODO_STARTED, ADD_TODO_SUCCESS} from "../types/todo";
+import { FETCH_TODOS_STARTED, FETCH_TODOS_SUCCESS, FETCH_TODOS_FAILURE} from "../types/todo";
 
-function GOTO() {
-  NEXT_ID[NEXT_ID.length]=nextTodoId
-  console.log(NEXT_ID);
-  return ++nextTodoId
-}
-export const addProduct = (content) => ({
-  type: ADD_PRODUCT,
+
+
+export const addTodoSuccess = (todo) => ({
+  type: ADD_TODO_SUCCESS,
   payload: {
-    id: GOTO(),
-    content,
+    ...todo,
   },
 });
 
-export const toggleProduct = (id) => ({
-  type: COMPARISON_PRODUCT,
-  payload: { id },
+export const addTodoStarted = () => ({
+  type: ADD_TODO_STARTED,
 });
 
-export const removalProduct =(id)=>({
-    type:REMOVAL_PRODUCT,
-    payload:{id:id},
+export const addTodoFailure = (error) => ({
+  type: ADD_TODO_FAILURE,
+  payload: {
+    error,
+  },
+});
+export const fetchTodosStarted = () => ({
+  type: FETCH_TODOS_STARTED,
+});
+
+export const fetchTodosSuccess = (todos) => ({
+  type: FETCH_TODOS_SUCCESS,
+  payload: {
+    todos,
+  },
+});
+
+export const fetchTodosFailure = (error) => ({
+  type: FETCH_TODOS_FAILURE,
+  payload: {
+    error,
+  },
 })
