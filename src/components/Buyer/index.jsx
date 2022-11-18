@@ -1,4 +1,3 @@
-import { PURCHASES,USER } from "../../constants";
 import * as S from "./style";
 
 function Buyer(params) {
@@ -26,7 +25,7 @@ function Buyer(params) {
         
         <div className="cart__form_text-box">
           <p className="cart__form_text">Итого: </p>
-          <p className="name_product">{PURCHASES.length} нименований </p>
+          <p className="name_product">{} нименований </p>
         </div>
         <S.Buttons  className="cart__form_butt">
           Данные карты..

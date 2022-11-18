@@ -15,6 +15,9 @@ export const Form = styled.form`
   border-radius: 20px;
   grid-column: span 4;
   max-width: 360px;
+  @media (max-width: 480px) {
+    max-width: 230px;
+  }
 `;
 
 export const FormInput = styled.input`
@@ -28,6 +31,9 @@ export const FormInput = styled.input`
   border-bottom: 1px solid #cacdd8;
   background: #f7f6f6;
   padding-top: 40px;
+  @media (max-width: 480px) {
+    width: 207px;
+  }
 `;
 export const Buyers = styled.div`
   display: flex;
@@ -41,4 +47,7 @@ export const Buttons = styled.button`
   font-size: 16px;
   line-height: 20px;
   color: #000000;
+  @media (max-width: 480px) {
+    width: 164px;
+  }
 `;

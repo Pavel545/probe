@@ -11,4 +11,8 @@ export const Gallery = styled.div`
 export const Text = styled.div`
   color: #ffffff;
   font-size: 150px;
+  text-align: center;
+  @media (max-width: 480px) {
+    font-size: 90px;
+  }
 `;

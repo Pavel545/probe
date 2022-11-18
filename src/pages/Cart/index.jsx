@@ -1,42 +1,43 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { beer } from "../../components/Bd/beer";
 import Product from "../../components/product";
-import { PURCHASES } from "../../constants";
 import * as S from "./style";
+import { useDispatch, useSelector } from "react-redux";
+import {todosSelector} from "../../store/selectors/todo"
+import { fetchCart } from "../../store/actions/thunk/todo";
+
+
 
 function Cart() {
-  const not = () => {};
-  const [quantity, setQuantity] = useState();
+  const cartProduct = useSelector(todosSelector)
+  const dispatch= useDispatch()
+  const [changes, vacChanges]= useState(true)
+  
+  
   useEffect(() => {
-    if (quantity || quantity===0) {
-      PURCHASES.splice(quantity,1);
-      console.log(quantity);
-      console.log(PURCHASES);
-
-      setQuantity(undefined)
+    if (changes === true) {
+      dispatch(fetchCart())
+      vacChanges(false)
     }
   });
+  console.log(cartProduct);
+  
   return (
     <S.Gallery>
-      {PURCHASES.length === 0 ? <S.Text>Тут ещё нечего нет...</S.Text>:beer.map((beers, key) =>
-        PURCHASES.map((element, index) =>
-          beers.id === element.id ? (
-            <Product
-              id={index}
-              key={key}
-              img={beers.image_url}
-              name={beers.name}
-              text={beers.tagline}
-              text_strength={beers.abv}
-              cart={setQuantity}
-              textButton={"Удалить из корзины"}
-            />
-          ) : (
-            not
-          )
-        )
-      )}
+      {cartProduct[0] === undefined ? <S.Text>Тут ещё нечего нет...</S.Text>:
+      cartProduct.map((element, index) =>
+      
+        <Product
+          id={element.id}
+          key={index}
+          img={element.title.image_url}
+          name={element.title.name}
+          text={element.title.tagline}
+          text_strength={element.title.abv}
+          vacChanges={vacChanges}
+          textButton={"Удалить из корзины"}
+        />
+    )}
       
     </S.Gallery>
   );

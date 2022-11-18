@@ -16,4 +16,4 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 ### `npm run build`
 
-
+mobile: @media (max-width: 480px) 100%

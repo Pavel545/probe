@@ -28,7 +28,7 @@ function Order() {
       <S.ButtonBox>
         {tack ===2||tack ===3 ? <S.Button onClick={back}>Назад</S.Button> : none}
 
-        {tack === 3 ? <S.Button onClick={go}>Далее</S.Button> : none}
+        {tack === 4 ? <S.Button onClick={go}>Далее</S.Button> : none}
       </S.ButtonBox>
     </S.Box>
   );
