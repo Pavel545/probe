@@ -15,10 +15,10 @@ function Header() {
       <NavLink to="/"><S.Logo/></NavLink>
       <S.BoxLink>
         <div>
-          <NavLink   to="/order"><S.Link>Оплата</S.Link> </NavLink>
+          <NavLink style={{textDecoration: 'none'}}   to="/order"><S.Link>Оплата</S.Link> </NavLink>
         </div>
         <div>
-          <NavLink to="/cart" onClick={cart}><S.Link>Корзина</S.Link> </NavLink>
+          <NavLink style={{textDecoration: 'none'}}  to="/cart" onClick={cart}><S.Link>Корзина</S.Link> </NavLink>
         </div>
       </S.BoxLink>
     </S.Headers>

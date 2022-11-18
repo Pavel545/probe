@@ -1,6 +1,7 @@
 
 
 import { Routes, Route } from "react-router-dom";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Cart from "./pages/Cart";
 import Main from "./pages/Main";
@@ -17,6 +18,7 @@ export const AppRoutes = () => {
           <div>
             <Header />
             <Main  />
+            <Footer/>
           </div>
         }
       />
@@ -26,6 +28,7 @@ export const AppRoutes = () => {
           <div>
             <Header />
             <Cart/>
+            <Footer/>
           </div>
         }
       />
@@ -35,6 +38,7 @@ export const AppRoutes = () => {
           <div>
             <Header />
             <Order />
+            <Footer/>
           </div>
         }
       />

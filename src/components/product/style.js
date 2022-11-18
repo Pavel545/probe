@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Cell = styled.div`
-  padding: 10px;
   display: flex;
   padding: 16px;
   flex-direction: column;
@@ -22,14 +21,28 @@ export const Cell = styled.div`
     display: flex;
     gap: 16px;
   }
+  @media (max-width: 480px) {
+    width: 83px;
+    height: 100px;
+  padding: 8px;
+
+  }
 `;
 export const Photo = styled.img`
   height: 75%;
   width: 50%;
+  @media (max-width: 480px) {
+    height: 50%;
+    width: 20%;
+  }
 `;
 export const Name = styled.div`
   font-style: normal;
   font-weight: normal;
+  @media (max-width: 480px) {
+    font-size: 10px;
+    
+  }
 `;
 export const Cell_op = styled.div`
   display: flex;
@@ -38,13 +51,19 @@ export const Cell_op = styled.div`
 export const Text = styled.div`
   font-size: 14px;
   line-height: 17px;
-  
   margin-bottom: 12px;
+  max-height: 43px;
+  @media (max-width: 480px) {
+    display: none;
+  }
 `;
 export const Text_strength = styled.div`
   font-size: 13px;
   line-height: 20px;
   color: rgb(140, 10, 10);
+  @media (max-width: 480px) {
+    display: none;
+  }
 `;
 export const Button = styled.button`
   box-sizing: border-box;
@@ -55,5 +74,16 @@ export const Button = styled.button`
   line-height: 20px;
   color: #000000;
   background: #ffffff;
+  @media (max-width: 480px) {
+    display: none;
+  }
+`;
+export const Car = styled.svg`
+  display: none;
   
+  @media (max-width: 480px) {
+    height: 50%;
+    width: 20%;
+    display: block;
+  }
 `;

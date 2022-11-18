@@ -2,12 +2,22 @@ import styled from "styled-components";
 
 export const Main = styled.div`
   background: #0c0c04;
+  @media (max-width: 480px) {
+    
+    max-width: 464px;
+  }
 `;
 export const Gallery = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 32px;
   padding-left: 40px;
+  justify-content: center;
+  padding-bottom: 40px;
+  @media (max-width: 480px) {
+    max-width: 364px;
+    
+  }
 `;
 export const SelectBox = styled.div`
   padding-top: 40px;
@@ -17,6 +27,7 @@ export const SelectBox = styled.div`
   padding-bottom: 45px;
   min-height: 40px;
   align-content: center;
+  
 `;
 export const Select = styled.select`
   width: 288px;
@@ -34,4 +45,8 @@ export const Select = styled.select`
   background-position: right;
   padding-right: 25px;
   background: #d9bc2f;
+  @media (max-width: 480px) {
+    width: 218px;
+    
+  }
 `;
