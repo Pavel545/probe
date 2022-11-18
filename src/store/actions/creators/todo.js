@@ -1,5 +1,7 @@
 import { ADD_TODO_FAILURE, ADD_TODO_STARTED, ADD_TODO_SUCCESS} from "../types/todo";
 import { FETCH_TODOS_STARTED, FETCH_TODOS_SUCCESS, FETCH_TODOS_FAILURE} from "../types/todo";
+import { TOGGLE_TODO_STARTED, TOGGLE_TODO_SUCCESS, TOGGLE_TODO_FAILURE} from "../types/todo";
+
 
 
 
@@ -36,4 +38,18 @@ export const fetchTodosFailure = (error) => ({
   payload: {
     error,
   },
-})
+});
+export const toggleTodoStarted = () => ({
+  type: TOGGLE_TODO_STARTED,
+});
+
+export const toggleTodoSuccess = () => ({
+  type: TOGGLE_TODO_SUCCESS,
+});
+
+export const toggleTodoFailure = (error) => ({
+  type: TOGGLE_TODO_FAILURE,
+  payload: {
+    error,
+  },
+});

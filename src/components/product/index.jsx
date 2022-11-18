@@ -1,6 +1,6 @@
 import * as S from "./style";
 import { useDispatch } from "react-redux";
-import { createCart } from "../../store/actions/thunk/todo";
+import { createCart, removalTodo } from "../../store/actions/thunk/todo";
 
 function Product(props) {
   const dispatch = useDispatch();
@@ -15,6 +15,8 @@ function Product(props) {
       }
     }
     if (props.textButton === "Удалить из корзины") {
+      dispatch(removalTodo(props.id))
+      props.vacChanges(true)
       console.log(props.id);
     }
     if (props.textButton === "Добавить в корзину") {

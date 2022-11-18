@@ -5,6 +5,9 @@ import {
   FETCH_TODOS_STARTED,
   FETCH_TODOS_SUCCESS,
   FETCH_TODOS_FAILURE,
+  TOGGLE_TODO_STARTED,
+  TOGGLE_TODO_SUCCESS,
+  TOGGLE_TODO_FAILURE,
 } from "../actions/types/todo";
 
 const initialState = {
@@ -52,6 +55,26 @@ export default function todoReducer(state = initialState, action) {
     }
 
     case FETCH_TODOS_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.error,
+      };
+    case TOGGLE_TODO_STARTED:
+      return {
+        ...state,
+        loading: true,
+      };
+
+    case TOGGLE_TODO_SUCCESS:
+
+      return {
+        ...state,
+        loading: false,
+        error: null,
+      };
+
+    case TOGGLE_TODO_FAILURE:
       return {
         ...state,
         loading: false,

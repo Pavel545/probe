@@ -7,6 +7,9 @@ import {
   fetchTodosStarted,
   fetchTodosSuccess,
   fetchTodosFailure,
+  toggleTodoStarted,
+  toggleTodoSuccess,
+  toggleTodoFailure,
 } from "../creators/todo";
 
 const BASE_URL = "https://6376707e81a568fc25fed4bf.mockapi.io/Cart";
@@ -34,3 +37,14 @@ export const fetchCart = () => async (dispatch) => {
       dispatch(fetchTodosFailure(error));
     }
 };
+export const removalTodo = (id) => async (dispatch) => {
+    dispatch(toggleTodoStarted());
+  
+    try {
+      const { data } = await axios.delete(`${BASE_URL}/${id}`);
+  
+      dispatch(toggleTodoSuccess());
+    } catch (error) {
+      dispatch(toggleTodoFailure(error));
+    }
+  };

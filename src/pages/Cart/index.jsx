@@ -1,19 +1,24 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { beer } from "../../components/Bd/beer";
 import Product from "../../components/product";
 import * as S from "./style";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {todosSelector} from "../../store/selectors/todo"
+import { fetchCart } from "../../store/actions/thunk/todo";
 
 
 
 function Cart() {
   const cartProduct = useSelector(todosSelector)
-  
+  const dispatch= useDispatch()
+  const [changes, vacChanges]= useState(true)
   
   
   useEffect(() => {
+    if (changes === true) {
+      dispatch(fetchCart())
+      vacChanges(false)
+    }
   });
   console.log(cartProduct);
   
@@ -23,12 +28,13 @@ function Cart() {
       cartProduct.map((element, index) =>
       
         <Product
-          id={element.title.id}
+          id={element.id}
           key={index}
           img={element.title.image_url}
           name={element.title.name}
           text={element.title.tagline}
           text_strength={element.title.abv}
+          vacChanges={vacChanges}
           textButton={"Удалить из корзины"}
         />
     )}
