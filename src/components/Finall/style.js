@@ -1,6 +1,6 @@
 import styled from "styled-components";
 export const Box = styled.div`
-  min-height: 750px;
+  min-height: 150px;
   background: #0c0c04;
   padding-top: 30px;
   display: flex;
